@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace counter
+public class Counter
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-        }
-    }
+    private int val = 0;
+    public void Add(int x) { val += x; }
+    public int Val() { return val; }
 }
