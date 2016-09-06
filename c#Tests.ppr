@@ -1,0 +1,35 @@
+[Config]
+Compilator.FileName=csc
+Compilator.PSPar=%File%
+Compilator.DefaultDir=C:\Users\User\Documents\Programmieren\C#
+Compilator.SaveAll=1
+Compilator.Capture=1
+Compilator.HideOutput=0
+Compilator.ProgSaveAll=0
+Compilator.ProgRunSelection=0
+Compilator.LogType=0
+Prog1=csc,csc %File%§
+DefaultDir=C:\Users\User\Documents\Programmieren\C#
+DefaultCPIndex=0
+LogtoEnd=1
+DontOpen=0
+AbsolutePath=0
+FileFormat=0
+ProjectFilesOnly=0
+Extensions=cs
+[Project tree]
+c#Tests
+	+src
+		hello.cs
+[Open project files]
+0=hello.cs
+1=..\..\SharpDevelop Projects\Hello\Hello\Hello.cs
+[Selected Project Files]
+Main=hello.cs
+Selected=..\..\SharpDevelop Projects\Hello\Hello\Hello.cs
+[hello.cs]
+TopLine=1
+Caret=15,5
+[..\..\SharpDevelop Projects\Hello\Hello\Hello.cs]
+TopLine=33
+Caret=17,10
