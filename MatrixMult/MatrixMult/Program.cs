@@ -9,7 +9,7 @@ namespace MatrixMult
   
     class testMMult
     {
-        public double[,] MatrixMult(double[,] a, double[,] b)
+        static public double[,] MatrixMult(ref double[,] a, ref double[,] b)
         {
             int rows = a.GetLength(0), cols = a.GetLength(1);
 
@@ -35,10 +35,17 @@ namespace MatrixMult
 
         static void Main(string[] args)
         {
-            double[,] a = { { 1 }, { 2 } };
-            double[,] b = { { 1, 2 } };
-            double[,] c = MatrixMult(a, b);
+            double[,] a = new double[2,1] { { 1 }, { 2 } };
+            double[,] b = new double[1,2] { { 1, 2 } };
+            double[,] c = MatrixMult(ref a, ref b);
 
+            foreach(double[] r in c)
+            {
+                foreach(double e in r)
+                {
+
+                }
+            }
         }
     }
 }
