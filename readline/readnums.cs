@@ -26,6 +26,6 @@ public class readnum{
 		
 		Console.WriteLine ("Adding the two numbers: " + (number1 + number2));
 
-		Console.ReadLine ();
+		Console.ReadKey(true);
 	}
 }
