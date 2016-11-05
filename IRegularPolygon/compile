@@ -1,0 +1,8 @@
+#!/bin/bash
+ECHO=on
+mcs -t:library IRegularPolygon.cs
+mcs -t:library -r:IRegularPolygon.dll s
+quare.cs
+mcs -t:exe -r:IRegularPolygon.dll -r:square.dll testsquare.cs
+mono testsquare.exe
+
