@@ -22,7 +22,7 @@ class dirstat
 			Console.WriteLine(path);
 			foreach (DirectoryInfo d in di.EnumerateDirectories())
 			{
-				path2 = path+@"\"+d.Name;
+				path2 = Path.Combine(path,d.Name);
 				//Console.WriteLine(path2);
 				DirectoryInfo d2 = new DirectoryInfo(path2);
 				//d2 = d;
