@@ -8,12 +8,28 @@
  */
 using System;
 using System.IO;
+using System.Windows.Forms;
+
 
 class dirstat
 {
+	static int numArgs = 1;
 	/// <summary>
 	/// Description of Class1.
 	/// </summary>
+	public String WorkingDir { get; set;}
+	public String InterestDir { get; set;}
+	public String ExeName { get; set;}
+
+	public dirstat(){
+		WorkingDir = Path.GetDirectoryName(Application.ExecutablePath);
+		ExeName = Path.GetFileName(WorkingDir);
+	}
+	
+	static public dirstat Create(){
+		return new dirstat();
+	}
+
 	static void printoutDirs(ref DirectoryInfo di, String path){
 		String path2;
 		
@@ -40,11 +56,16 @@ class dirstat
 		}
 	}
 
-	static void Main()
+	static void Main(string[] args)
 	{
+		var myDirStat = dirstat.Create();
+		if (args.Length != dirstat.numArgs){
+			Console.WriteLine("Usage: {0} dir", myDirStat.ExeName);
+		}
+		
 		DirectoryInfo di = new DirectoryInfo("testdir");
 		//IEnumerable<DirectoryInfo> en = di.EnumerateDirectories();
-	
+		
 		printoutDirs(ref di, di.Name);
 	}
 }
