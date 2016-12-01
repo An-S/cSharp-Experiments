@@ -15,24 +15,17 @@ class dirstat
 	/// <summary>
 	/// Description of Class1.
 	/// </summary>
-	static void printoutFiles(ref DirectoryInfo di, String path){
+	static void printoutFiles(ref DirectoryInfo di){
+		String path = di.Name;
 		String path2;
-		
+
 		if (di.Exists)
 		{
 			Console.WriteLine(path);
 			foreach (FileInfo f in di.EnumerateFiles())
 			{
-				path2 = path+@"\"+d.Name;
-				//Console.WriteLine(path2);
-				DirectoryInfo d2 = new DirectoryInfo(path2);
-				//d2 = d;
-				if (d2.Exists) 
-				{
-					printoutDirs(ref d2, path2);
-				}
-				else Console.WriteLine("Dir -{0}- exists not", d2.Name);
-				//else Console.WriteLine(di2.Name);
+				path2 = Path.Combine(path,f.Name);
+				Console.WriteLine(path2);
 			}
 			
 		}else
@@ -43,9 +36,9 @@ class dirstat
 
 	static void Main()
 	{
-		DirectoryInfo di = new DirectoryInfo("testdir");
+		DirectoryInfo di = new DirectoryInfo("./");
 		//IEnumerable<DirectoryInfo> en = di.EnumerateDirectories();
 	
-		printoutDirs(ref di, di.Name);
+		printoutFiles(ref di);
 	}
 }
