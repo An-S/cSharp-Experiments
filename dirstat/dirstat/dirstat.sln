@@ -20,6 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libsrc", "libsrc", "{4D27F9
 	ProjectSection(SolutionItems) = postProject
 		..\libsrc\class1.cs = ..\libsrc\class1.cs
 		..\libsrc\listFiles.cs = ..\libsrc\listFiles.cs
+		..\libsrc\FileRunner.cs = ..\libsrc\FileRunner.cs
 	EndProjectSection
 EndProject
 Global
