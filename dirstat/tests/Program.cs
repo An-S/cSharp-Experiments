@@ -10,7 +10,7 @@ using System;
 using System.IO;
 
 class MainClass{
-	void prFile(FileInfo fl){
+	static void prFile(FileInfo fl){
 		Console.WriteLine(fl.Name);
 	}
 	
@@ -29,6 +29,6 @@ class MainClass{
 		di = new DirectoryInfo("./");
 		//IEnumerable<DirectoryInfo> en = di.EnumerateDirectories();
 	
-		var fr = new FilesRunner(di, prFile);
+		var fr = new FilesRunner(ref di, prFile);
 	}
 }

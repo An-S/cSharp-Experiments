@@ -11,7 +11,7 @@ using System.IO;
 using System.Windows.Forms;
 
 
-class dirstat
+public class dirstat
 {
 	static int numArgs = 1;
 	/// <summary>
@@ -20,7 +20,9 @@ class dirstat
 	public String WorkingDir { get; set;}
 	public String InterestDir { get; set;}
 	public String ExeName { get; set;}
-
+	public delegate void fileDelegate(FileInfo filenfo);
+	public delegate void dirDelegate(DirectoryInfo dirnfo);
+	
 	public dirstat(){
 		WorkingDir = Path.GetDirectoryName(Application.ExecutablePath);
 		ExeName = Path.GetFileName(WorkingDir);
@@ -56,16 +58,6 @@ class dirstat
 		}
 	}
 
-	static void Main(string[] args)
-	{
-		var myDirStat = dirstat.Create();
-		if (args.Length != dirstat.numArgs){
-			Console.WriteLine("Usage: {0} dir", myDirStat.ExeName);
-		}
-		
-		DirectoryInfo di = new DirectoryInfo("testdir");
-		//IEnumerable<DirectoryInfo> en = di.EnumerateDirectories();
-		
-		printoutDirs(ref di, di.Name);
-	}
+	
 }
+
