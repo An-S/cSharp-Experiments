@@ -16,7 +16,7 @@ class MainClass{
 	
 	static void Main(string[] args)
 	{
-		DirectoryInfo di = new DirectoryInfo("./r");
+		DirectoryInfo di = new DirectoryInfo(@"./");
 		var fr = new FilesRunner(ref di, prFile);
 	}
 }

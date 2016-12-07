@@ -36,18 +36,19 @@ public class DirRunner:dirstat
         {
             String path;
 
-            Console.WriteLine(BaseDI.Name);
+            dg(BaseDI);
             foreach (DirectoryInfo relDI in BaseDI.EnumerateDirectories())
             {
                 //path = Path.Combine(BaseDI.Name, relDI.Name);
                 //Console.WriteLine(path2);
-                DirectoryInfo combinedDI = new DirectoryInfo(BaseDI.FullName);
+                DirectoryInfo combinedDI = new DirectoryInfo(relDI.FullName);
                 //d2 = d;
+                
                 if (combinedDI.Exists)
                 {
                     recurseDirs(ref combinedDI, ref dg);
                 }
-                else Console.WriteLine("Dir -{0}- exists not", combinedDI.FullName);
+                else Console.WriteLine("Dir -{0}- exists not. Code should not end up, here!", combinedDI.FullName);
                 //else Console.WriteLine(di2.Name);
             }
         }
