@@ -13,8 +13,20 @@ public class testFileExists
     public class testDirRunner
     {
         [TestCase]
-        public void TestGetSubDirs()
+        public void TestCreateDirInfo()
         {
+            String dirname = "test";
+            DirUtil.CreateDirInfo di;
+            try
+            {
+                di = new DirUtil.CreateDirInfo(dirname);
+                Fail();
+            }
+            catch (IOException e)
+            {
+                Assert.AreEqual(dirname, di.DInfo.Name);
+                Assert.AreEqual(false, di.dirExists);
+            }
         }
 
         [TestCase]
