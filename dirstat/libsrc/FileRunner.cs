@@ -9,28 +9,31 @@
 using System;
 using System.IO;
 
-
-public class FilesRunner:dirstat
+namespace DirUtil
 {
-	/// <summary>
-	/// Description of Class1.
-	/// </summary>
-	
-	public FilesRunner(ref DirectoryInfo di, fileDelegate dg){
-		if (di.Exists)
-		{
-			foreach (FileInfo f in di.EnumerateFiles())
-			{
-				//path2 = Path.Combine(path,f.Name);
-				//Console.WriteLine(path2);
-				dg(f);
-			}
-		}else
-		{
-			Console.WriteLine("Dir -{0}- does not exist.", di.Name);
-		}
-	}
-	
-}
+    public class FilesRunner : dirstat
+    {
+        /// <summary>
+        /// Description of Class1.
+        /// </summary>
 
+        public FilesRunner(ref DirectoryInfo di, fileDelegate dg)
+        {
+            if (di.Exists)
+            {
+                foreach (FileInfo f in di.EnumerateFiles())
+                {
+                    //path2 = Path.Combine(path,f.Name);
+                    //Console.WriteLine(path2);
+                    dg(f);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Dir -{0}- does not exist.", di.Name);
+            }
+        }
+
+    }
+}
 

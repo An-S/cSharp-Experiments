@@ -23,59 +23,58 @@
 using System;
 using System.IO;
 
-
-public class DirRunner:dirstat
+namespace DirUtil
 {
-    /// <summary>
-    /// Description of Class1.
-    /// </summary>
-    static void recurseDirs(ref DirectoryInfo BaseDI, ref dirDelegate dg)
-    {
-       
-        if (BaseDI.Exists)
-        {
-            String path;
 
-            dg(BaseDI);
-            foreach (DirectoryInfo relDI in BaseDI.EnumerateDirectories())
+    public class DirRunner : dirstat
+    {
+        /// <summary>
+        /// Description of Class1.
+        /// </summary>
+        static void recurseDirs(ref DirectoryInfo BaseDI, ref dirDelegate dg)
+        {
+
+            if (BaseDI.Exists)
             {
-                //path = Path.Combine(BaseDI.Name, relDI.Name);
-                //Console.WriteLine(path2);
-                DirectoryInfo combinedDI = new DirectoryInfo(relDI.FullName);
-                //d2 = d;
-                
-                if (combinedDI.Exists)
+                dg(BaseDI);
+                foreach (DirectoryInfo relDI in BaseDI.EnumerateDirectories())
                 {
-                    recurseDirs(ref combinedDI, ref dg);
+                    DirectoryInfo combinedDI = new DirectoryInfo(relDI.FullName);
+
+                    if (combinedDI.Exists)
+                    {
+                        recurseDirs(ref combinedDI, ref dg);
+                    }
+                    else Console.WriteLine("Dir -{0}- exists not. Code should not end up, here!", combinedDI.FullName);
                 }
-                else Console.WriteLine("Dir -{0}- exists not. Code should not end up, here!", combinedDI.FullName);
-                //else Console.WriteLine(di2.Name);
+            }
+            else
+            {
+                Console.WriteLine("Dir -{0}- does not exist.", BaseDI.Name);
             }
         }
-        else
+
+
+        public DirRunner(ref DirectoryInfo di, dirDelegate dg)
         {
-            Console.WriteLine("Dir -{0}- does not exist.", BaseDI.Name);
+            if (di.Exists)
+            {
+                //Console.WriteLine(path);
+                recurseDirs(ref di, ref dg);
+                /*foreach (DirectoryInfo d in di.EnumerateDirectories())
+			    {
+				    //path2 = Path.Combine(path,f.Name);
+				    //Console.WriteLine(path2);
+				    dg(d);
+                    (ref new DirectoryInfo(di.Name), dg);
+			    }*/
+            }
+            else
+            {
+                Console.WriteLine("Dir -{0}- does not exist.", di.Name);
+            }
         }
+
+
     }
-
-
-    public DirRunner(ref DirectoryInfo di, dirDelegate dg){
-		if (di.Exists)
-		{
-            //Console.WriteLine(path);
-            recurseDirs(ref di, ref dg);
-            /*foreach (DirectoryInfo d in di.EnumerateDirectories())
-			{
-				//path2 = Path.Combine(path,f.Name);
-				//Console.WriteLine(path2);
-				dg(d);
-                (ref new DirectoryInfo(di.Name), dg);
-			}*/
-		}else
-		{
-			Console.WriteLine("Dir -{0}- does not exist.", di.Name);
-		}
-	}
-
-
 }

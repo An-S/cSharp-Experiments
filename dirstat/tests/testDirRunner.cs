@@ -19,6 +19,6 @@ class MainClass
     static void Main(string[] args)
     {
         DirectoryInfo di = new DirectoryInfo("dirtree");
-        var fr = new DirRunner(ref di, prDir);
+        var fr = new DirUtil.DirRunner(ref di, prDir);
     }
 }

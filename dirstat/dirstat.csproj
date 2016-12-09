@@ -94,8 +94,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="libsrc\checkIfFileSystemObjectExists.cs" />
     <Compile Include="libsrc\DirRunner.cs" />
     <Compile Include="libsrc\FileRunner.cs" />
+    <Compile Include="libsrc\IFileSystemRunner.cs" />
     <Compile Include="libsrc\listFiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
