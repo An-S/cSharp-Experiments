@@ -9,7 +9,21 @@ using NUnit.Framework;
 [TestFixture]
 public class testFileExists
 {
-    
+    private FileInfo CreateTempFile()
+    {
+        String filename = "temp";
+        var fi = new FileInfo(filename);
+        fi.Create();
+
+        return fi;
+    }
+
+    private bool DestroyTmpFile(ref FileInfo fi)
+    {
+        fi.Delete();
+        return true;
+    }
+
     public class testDirRunner
     {
         //define method with optional param.
