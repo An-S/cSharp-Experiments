@@ -29,6 +29,25 @@ class dirstat
 	static public dirstat Create(){
 		return new dirstat();
 	}
+	
+	static void printoutFiles(ref DirectoryInfo di){
+		String path = di.Name;
+		String path2;
+
+		if (di.Exists)
+		{
+			//Console.WriteLine(path);
+			foreach (FileInfo f in di.EnumerateFiles())
+			{
+				path2 = Path.Combine(path,f.Name);
+				Console.WriteLine(path2);
+			}
+			
+		}else
+		{
+			Console.WriteLine("Dir -{0}- does not exist.", di.Name);
+		}
+	}
 
 	static void printoutDirs(ref DirectoryInfo di, String path){
 		String path2;
@@ -41,6 +60,7 @@ class dirstat
 				path2 = Path.Combine(path,d.Name);
 				//Console.WriteLine(path2);
 				DirectoryInfo d2 = new DirectoryInfo(path2);
+				printoutFiles(ref d2);
 				//d2 = d;
 				if (d2.Exists) 
 				{
